@@ -5,7 +5,7 @@ import pyperclip
 # Retrieve English words from brown corpus
 print('Starting password generator...')
 
-words = [word for word in brown.tagged_words(tagset='universal') if word.isalpha()]
+words = [word for word in brown.tagged_words(tagset='universal') if word[0].isalpha()]
 adjectives = [x.lower() for x,y in words if y == 'ADJ' if x.isalpha()]
 verbs = [x.lower() for x,y in words if y == 'VERB' if x.isalpha() and 'ing' in x]
 nouns = [x.lower() for x,y in words if y == 'NOUN' if x.isalpha()]

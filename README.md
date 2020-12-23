@@ -9,15 +9,13 @@ Short Python script to generate memorable passwords (NLTK).
 - Copies to clipboard automatically when password is selected!
 
 ## Preview
-<br>
-<br>
 <img src="passgen.gif" width="400"/>
 
 ## Try it yourself
 ```
 $ git clone https://github.com/athiyadeviyani/Password-Generator.git
 $ cd password-generator
-$ pip install -r requirements.txt
+$ pip install -r req.txt
 $ python password-generator.py
 ```
 Don't forget to ⭐️ this repo if you like it!

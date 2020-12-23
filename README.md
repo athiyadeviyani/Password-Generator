@@ -1,5 +1,5 @@
 # Password-Generator
-Short Python script to generate memorable passwords using words from the NLTK Brown corpus of 1,161,192 English words.
+Safe passwords made easy: a Python script that generates memorable passwords using words from the NLTK Brown corpus of 1,161,192 English words.
 
 ## Features
 - Choice of 1, 2, 3, or 4 words in the password (length will always be >= 8 characters)
@@ -10,7 +10,13 @@ Short Python script to generate memorable passwords using words from the NLTK Br
 - Copies to clipboard automatically when password is selected!
 
 ## Preview
+<br>
+4 words with capital letters, numbers, and symbols
 <img src="passgen.gif" width="400"/>
+
+<br>
+1 word with a capital letter, numbers, and symbols in c00lc4s3
+<img src="passgen_cc.gif" width="400"/>
 
 ## Try it yourself
 ```

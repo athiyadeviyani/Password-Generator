@@ -58,8 +58,23 @@ def generate(no_words, caps, nums, punc):
     elif no_words == 1:
         word = ''
         while len(word) < 8:
-            word = words[random.randint(0, len(words)-1)]
-            words_list.append(word)
+            word = words[random.randint(0, len(words)-1)][0]
+        if nums == 'y':
+            numstr = ''
+            while len(numstr) < 2:
+                numstr += str(random.randint(0, 9))
+            word += numstr 
+            
+        if caps == 'y' and punc == 'y':
+            password = word.capitalize()
+            password += '!'
+            return password
+        elif caps == 'y' and punc == 'n':
+            return word.capitalize()
+        elif caps == 'n' and punc == 'y':
+            return (word + '!')
+        else:
+            return word
 
     # Add two digits to final password
     if nums == 'y':
@@ -121,5 +136,3 @@ def main():
     print('Your password has been copied to clipboard. Thank you for using Password Generator and stay safe online!')
 
 main()
-
-

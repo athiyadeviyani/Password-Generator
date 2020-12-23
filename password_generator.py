@@ -5,7 +5,7 @@ import pyperclip
 # Retrieve English words from brown corpus
 print('Starting password generator...')
 
-words = brown.tagged_words(tagset='universal')
+words = [word for word in brown.tagged_words(tagset='universal') if word.isalpha()]
 adjectives = [x.lower() for x,y in words if y == 'ADJ' if x.isalpha()]
 verbs = [x.lower() for x,y in words if y == 'VERB' if x.isalpha() and 'ing' in x]
 nouns = [x.lower() for x,y in words if y == 'NOUN' if x.isalpha()]
@@ -14,10 +14,6 @@ det = [x.lower() for x,y in words if y == 'DET' if x.isalpha()]
 vowels = 'aeiou'
 
 def coolcasify(word):
-    """
-    Changes input word to coolcase, i.e. replace a->4, e->3, and o->0.
-    """
-    
     mapping = {'a': '4', 'e': '3', 'o' : '0'}
     final = ''
     for letter in word:
@@ -168,5 +164,3 @@ def main():
     print('Your password has been copied to clipboard. Thank you for using Password Generator and stay safe online!')
 
 main()
-
-

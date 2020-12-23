@@ -13,7 +13,21 @@ det = [x.lower() for x,y in words if y == 'DET' if x.isalpha()]
 
 vowels = 'aeiou'
 
-def generate(no_words, caps, nums, punc):
+def coolcasify(word):
+    """
+    Changes input word to coolcase, i.e. replace a->4, e->3, and o->0.
+    """
+    
+    mapping = {'a': '4', 'e': '3', 'o' : '0'}
+    final = ''
+    for letter in word:
+        if letter in mapping:
+            final += mapping[letter]
+        else:
+            final += letter
+    return final
+
+def generate(no_words, caps, nums, punc, coolcase):
     """
     Generates password from input parameters.
 
@@ -59,6 +73,19 @@ def generate(no_words, caps, nums, punc):
         word = ''
         while len(word) < 8:
             word = words[random.randint(0, len(words)-1)][0]
+        if coolcase:
+            word = coolcasify(word)
+            if caps == 'y' and punc == 'y':
+                password = word.capitalize()
+                password += '!'
+                return password
+            elif caps == 'y' and punc == 'n':
+                return word.capitalize()
+            elif caps == 'n' and punc == 'y':
+                return (word + '!')
+            else:
+                return word
+        
         if nums == 'y':
             numstr = ''
             while len(numstr) < 2:
@@ -104,7 +131,7 @@ def main():
     """
     Program entry-point.
     """
-
+    coolcase = ''
     no_words = int(input('How many words? (1-4) '))
     while no_words not in [1,2,3,4]:
         print('Please input only the numbers 1, 2, 3, or 4!')
@@ -117,6 +144,11 @@ def main():
     while nums not in ['y', 'n']:
         print('Please input only y or n.')
         nums = input('Include numbers? (y/n) ')
+    if nums == 'y' and no_words == 1:
+        coolcase = input('Do you prefer c00lc4s3 (a) or standard99 (b)? (a/b) ')
+        while coolcase not in ['a', 'b']:
+            print('Please input only a or b.')
+            coolcase = input('Do you prefer c00lc4s3 (a) or standard99 (b)? (a/b) ')
     punc = input('Include punctuations? (y/n) ')
     while punc not in ['y', 'n']:
         print('Please input only y or n.')
@@ -125,7 +157,7 @@ def main():
     retry = 'y'
     
     while retry == 'y':
-        password = generate(no_words, caps, nums, punc)
+        password = generate(no_words, caps, nums, punc, coolcase)
         pyperclip.copy(password)
         print('Here is your password: ' + password)
         retry = input('Try again? (y/n) ')
@@ -136,3 +168,5 @@ def main():
     print('Your password has been copied to clipboard. Thank you for using Password Generator and stay safe online!')
 
 main()
+
+

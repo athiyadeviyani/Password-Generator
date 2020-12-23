@@ -1,5 +1,5 @@
 # Password-Generator
-Short Python script to generate memorable passwords (NLTK).
+Short Python script to generate memorable passwords using words from the NLTK Brown corpus of 1,161,192 English words.
 
 ## Features
 - Choice of 1, 2, 3, or 4 letters in the password (length will always be >= 8 characters)

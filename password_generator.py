@@ -69,7 +69,7 @@ def generate(no_words, caps, nums, punc, coolcase):
         word = ''
         while len(word) < 8:
             word = words[random.randint(0, len(words)-1)][0]
-        if coolcase:
+        if coolcase=='a':
             while word.isalpha():
                 word = coolcasify(word)
             if caps == 'y' and punc == 'y':

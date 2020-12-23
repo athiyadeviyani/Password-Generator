@@ -70,7 +70,8 @@ def generate(no_words, caps, nums, punc, coolcase):
         while len(word) < 8:
             word = words[random.randint(0, len(words)-1)][0]
         if coolcase:
-            word = coolcasify(word)
+            while word.isalpha():
+                word = coolcasify(word)
             if caps == 'y' and punc == 'y':
                 password = word.capitalize()
                 password += '!'

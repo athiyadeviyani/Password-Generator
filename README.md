@@ -10,12 +10,11 @@ Safe passwords made easy: a Python script that generates memorable passwords usi
 - Copies to clipboard automatically when password is selected!
 
 ## Preview
-<br>
-4 words with capital letters, numbers, and symbols
+4 words with capital letters, numbers, and symbols<br>
 <img src="passgen.gif" width="400"/>
-
 <br>
-1 word with a capital letter, numbers, and symbols in c00lc4s3
+
+1 word with a capital letter, numbers, and symbols in c00lc4s3<br>
 <img src="passgen_cc.gif" width="400"/>
 
 ## Try it yourself
